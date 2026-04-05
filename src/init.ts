@@ -66,7 +66,7 @@ function detectPackageManager(cwd: string): string {
 function getOwnVersion(): string {
   try {
     // When running via dlx, __dirname is the temp package location
-    const selfPkg = join(import.meta.dirname ?? ".", "..", "package.json");
+    const selfPkg = join(import.meta.dirname ?? ".", "..", "..", "package.json");
     if (existsSync(selfPkg)) {
       const p = JSON.parse(readFileSync(selfPkg, "utf-8")) as { version: string };
       return p.version;

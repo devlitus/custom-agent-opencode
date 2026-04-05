@@ -1,12 +1,24 @@
 import { inject } from "../src/inject.js";
+import { existsSync, readFileSync } from "fs";
+import { join } from "path";
 
 // INIT_CWD is set by npm/pnpm/yarn to the directory where the install was invoked.
-// If we're not inside node_modules, we're in our own dev environment — skip.
-const isInstalledAsDep = process.cwd().includes("node_modules");
+// If it's not set we're being run directly (e.g. dev mode) — skip.
 const projectRoot = process.env["INIT_CWD"];
-
-if (!isInstalledAsDep || !projectRoot) {
+if (!projectRoot) {
   process.exit(0);
+}
+
+// Don't inject into our own dev environment.
+try {
+  const targetPkg = JSON.parse(
+    readFileSync(join(projectRoot, "package.json"), "utf-8"),
+  ) as { name?: string };
+  if (targetPkg.name === "@devlitusp/opencode-agent") {
+    process.exit(0);
+  }
+} catch {
+  // no package.json — proceed anyway
 }
 
 try {
