@@ -8,7 +8,12 @@ export const orchestrator: AgentDefinition = {
     mode: "primary",
     temperature: 0.2,
     steps: 50,
-    tools: { computer: false },
+    tools: {
+      computer: false,
+      edit: false,
+      write: false,
+      bash: false,
+    },
   },
   prompt: `You are the lead developer orchestrator for a multi-agent software development team. Your role is to coordinate all development activities by delegating tasks to specialized subagents in the correct order.
 
