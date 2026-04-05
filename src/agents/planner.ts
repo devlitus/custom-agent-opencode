@@ -3,7 +3,6 @@ import type { AgentDefinition } from "../types.js";
 export const planner: AgentDefinition = {
   name: "planner",
   frontmatter: {
-    model: "minimax/MiniMax-M2.7",
     description: "Creates detailed, actionable implementation plans from investigation findings",
     mode: "subagent",
     temperature: 0.3,

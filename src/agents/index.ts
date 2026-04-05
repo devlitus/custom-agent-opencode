@@ -5,6 +5,10 @@ export { builder } from "./builder.js";
 export { qa } from "./qa.js";
 export { security } from "./security.js";
 export { docsWriter } from "./docs-writer.js";
+export { debugger_ } from "./debugger.js";
+export { performance } from "./performance.js";
+export { devops } from "./devops.js";
+export { refactorer } from "./refactorer.js";
 
 import { orchestrator } from "./orchestrator.js";
 import { investigator } from "./investigator.js";
@@ -13,6 +17,10 @@ import { builder } from "./builder.js";
 import { qa } from "./qa.js";
 import { security } from "./security.js";
 import { docsWriter } from "./docs-writer.js";
+import { debugger_ } from "./debugger.js";
+import { performance } from "./performance.js";
+import { devops } from "./devops.js";
+import { refactorer } from "./refactorer.js";
 import type { AgentDefinition } from "../types.js";
 
 export const ALL_AGENTS: AgentDefinition[] = [
@@ -23,4 +31,8 @@ export const ALL_AGENTS: AgentDefinition[] = [
   qa,
   security,
   docsWriter,
+  debugger_,
+  performance,
+  devops,
+  refactorer,
 ];

@@ -3,7 +3,6 @@ import type { AgentDefinition } from "../types.js";
 export const security: AgentDefinition = {
   name: "security",
   frontmatter: {
-    model: "minimax/MiniMax-M2.7",
     description: "Identifies security vulnerabilities and provides remediation guidance",
     mode: "subagent",
     temperature: 0.1,

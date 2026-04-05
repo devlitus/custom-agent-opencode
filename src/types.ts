@@ -12,7 +12,7 @@ export type ToolName =
   | "write";
 
 export interface AgentFrontmatter {
-  model: string;
+  model?: string;
   description: string;
   mode: "primary" | "subagent" | "all";
   temperature?: number;

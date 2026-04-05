@@ -3,7 +3,6 @@ import type { AgentDefinition } from "../types.js";
 export const docsWriter: AgentDefinition = {
   name: "docs-writer",
   frontmatter: {
-    model: "minimax/MiniMax-M2.7",
     description: "Creates JSDoc comments, README sections, and developer documentation",
     mode: "subagent",
     temperature: 0.3,

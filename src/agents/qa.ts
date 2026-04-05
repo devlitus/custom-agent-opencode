@@ -3,7 +3,6 @@ import type { AgentDefinition } from "../types.js";
 export const qa: AgentDefinition = {
   name: "qa",
   frontmatter: {
-    model: "minimax/MiniMax-M2.7",
     description: "Reviews code quality, writes tests, and verifies implementations against requirements",
     mode: "subagent",
     temperature: 0.2,

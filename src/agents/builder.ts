@@ -3,7 +3,6 @@ import type { AgentDefinition } from "../types.js";
 export const builder: AgentDefinition = {
   name: "builder",
   frontmatter: {
-    model: "minimax/MiniMax-M2.7",
     description: "Implements production-quality code following the plan precisely",
     mode: "subagent",
     temperature: 0.1,
