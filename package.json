@@ -1,0 +1,50 @@
+{
+  "name": "@devlitusp/opencode-agent",
+  "version": "0.0.1",
+  "description": "Multi-agent development team for OpenCode CLI — orchestrator, investigator, planner, builder, QA, security & docs",
+  "type": "module",
+  "bin": {
+    "opencode-agent": "./dist/bin/dev-agents.js"
+  },
+  "scripts": {
+    "build": "bun run scripts/build.ts",
+    "dev": "bun run bin/dev-agents.ts",
+    "postinstall": "node ./dist/bin/postinstall.js",
+    "prepublishOnly": "pnpm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "opencode",
+    "multi-agent",
+    "ai",
+    "developer-tools",
+    "minimax",
+    "orchestrator",
+    "agents"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devlitusp/opencode-agent"
+  },
+  "peerDependencies": {
+    "opencode-ai": "*"
+  },
+  "peerDependenciesMeta": {
+    "opencode-ai": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
