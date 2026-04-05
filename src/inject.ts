@@ -7,10 +7,10 @@ import type { AgentDefinition, AgentFrontmatter, InjectOptions, OpenCodeConfig, 
 
 const MINIMAX_PROVIDER_KEY = "minimax";
 const MINIMAX_PROVIDER: OpenCodeProvider = {
-  npm: "@ai-sdk/openai-compatible",
+  npm: "@ai-sdk/anthropic",
   name: "MiniMax",
   options: {
-    baseURL: "https://api.minimax.chat/v1",
+    baseURL: "https://api.minimax.io/anthropic/v1",
     apiKey: "{env:MINIMAX_API_KEY}",
   },
   models: {
