@@ -13,13 +13,13 @@ This single command:
 2. Configures pnpm to allow the postinstall script
 3. Installs the package and runs the setup automatically
 
-Then set your API key:
+Then set your API key and open OpenCode:
 
 ```bash
-export MINIMAX_API_KEY=your_key_here
+export MINIMAX_API_KEY=your_key_here   # MiniMax (default)
+# or
+export GITHUB_TOKEN=your_token_here    # GitHub Copilot
 ```
-
-Open OpenCode in your project and use the **orchestrator** agent to start.
 
 ## What gets created
 
@@ -33,7 +33,7 @@ Open OpenCode in your project and use the **orchestrator** agent to start.
   security.md       ← vulnerability scanning (OWASP Top 10)
   docs-writer.md    ← JSDoc, README, documentation
 
-opencode.json       ← MiniMax provider config + default_agent
+opencode.json       ← provider config + default_agent
 ```
 
 ## Agents
@@ -56,6 +56,34 @@ The orchestrator follows this sequence automatically:
 investigate → plan → security (pre) → build → QA → security (post) → docs
 ```
 
+## Providers
+
+Two providers are supported out of the box:
+
+| Provider | Flag | Model | Env var |
+|----------|------|-------|---------|
+| [MiniMax](https://platform.minimax.io) | `minimax` *(default)* | `MiniMax-M2.7` | `MINIMAX_API_KEY` |
+| [GitHub Copilot](https://github.com/features/copilot) | `github-copilot` | `gpt-4o` | `GITHUB_TOKEN` |
+
+Pass `--provider` to choose:
+
+```bash
+opencode-agent inject --provider github-copilot
+opencode-agent inject --provider minimax
+```
+
+GitHub Copilot also exposes `gpt-4o-mini`, `o3-mini`, `claude-sonnet-4-5`, and `claude-3-5-haiku` in `opencode.json` for manual selection.
+
+## CLI
+
+```bash
+opencode-agent init                              # full project setup
+opencode-agent inject                            # inject with MiniMax (default)
+opencode-agent inject --provider github-copilot # inject with GitHub Copilot
+opencode-agent inject -f                         # overwrite existing agent files
+opencode-agent list                              # list available agents
+```
+
 ## Manual install (npm / yarn / bun)
 
 ```bash
@@ -73,25 +101,8 @@ Then run:
 
 ```bash
 opencode-agent inject
-```
-
-## CLI
-
-```bash
-opencode-agent init        # full project setup
-opencode-agent inject      # inject agents into opencode.json
-opencode-agent inject -f   # overwrite existing agent files
-opencode-agent list        # list available agents
-```
-
-## Provider
-
-Uses [MiniMax](https://platform.minimax.io) with model `MiniMax-M2.7` via OpenAI-compatible API.
-
-Set your API key before opening OpenCode:
-
-```bash
-export MINIMAX_API_KEY=your_key_here
+# or with GitHub Copilot:
+opencode-agent inject --provider github-copilot
 ```
 
 ## License
