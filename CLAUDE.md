@@ -21,7 +21,7 @@ This is a **publishable npm package** (`@devlitusp/opencode-agent`) that injects
 When `inject()` runs in a target project it:
 1. Writes `.opencode/agents/*.md` — one file per agent (YAML frontmatter + system prompt)
 2. Updates `opencode.json` — adds the selected AI provider and sets `default_agent: orchestrator`
-3. Adds `"prepare": "dev-agents inject"` to `package.json` so the agents re-inject on install
+3. Adds `"prepare": "opencode-agent inject"` to `package.json` so the agents re-inject on install
 
 ### Key data flow
 

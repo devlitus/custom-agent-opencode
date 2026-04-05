@@ -180,7 +180,7 @@ export function inject(options: InjectOptions = {}): void {
 
     const scripts = (pkg["scripts"] ?? {}) as Record<string, string>;
     if (!scripts["prepare"] || force) {
-      scripts["prepare"] = "dev-agents inject";
+      scripts["prepare"] = "opencode-agent inject";
       pkg["scripts"] = scripts;
       writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n", "utf-8");
       log(`Added "prepare": "dev-agents inject" to package.json`);
