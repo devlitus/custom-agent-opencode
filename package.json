@@ -1,6 +1,6 @@
 {
   "name": "@devlitusp/opencode-agent",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Multi-agent development team for OpenCode CLI — orchestrator, investigator, planner, builder, QA, security & docs",
   "type": "module",
   "bin": {

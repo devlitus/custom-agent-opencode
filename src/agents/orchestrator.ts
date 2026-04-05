@@ -3,7 +3,7 @@ import type { AgentDefinition } from "../types.js";
 export const orchestrator: AgentDefinition = {
   name: "orchestrator",
   frontmatter: {
-    model: "minimax/MiniMax-M2.7",
+    model: "MiniMax-M2.7",
     description: "Lead coordinator that orchestrates the full development workflow",
     mode: "primary",
     temperature: 0.2,

@@ -7,11 +7,10 @@ import type { AgentDefinition, AgentFrontmatter, InjectOptions, OpenCodeConfig, 
 
 const MINIMAX_PROVIDER_KEY = "minimax";
 const MINIMAX_PROVIDER: OpenCodeProvider = {
-  npm: "@ai-sdk/anthropic",
-  name: "MiniMax",
+  npm: "@ai-sdk/openai-compatible",
+  name: "minimax",
   options: {
-    baseURL: "https://api.minimax.io/anthropic/v1",
-    apiKey: "{env:MINIMAX_API_KEY}",
+    baseURL: "https://minimax.io",
   },
   models: {
     "MiniMax-M2.7": { name: "MiniMax-M2.7" },
@@ -183,7 +182,7 @@ export function inject(options: InjectOptions = {}): void {
       scripts["prepare"] = "opencode-agent inject";
       pkg["scripts"] = scripts;
       writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n", "utf-8");
-      log(`Added "prepare": "dev-agents inject" to package.json`);
+      log(`Added "prepare": "opencode-agent inject" to package.json`);
     } else {
       log(`Skipped package.json prepare script (already exists)`);
     }

@@ -22,17 +22,17 @@ try {
 }
 
 try {
-  console.log("\n[dev-agents] Injecting OpenCode agent config...\n");
+  console.log("\n[opencode-agent] Injecting OpenCode agent config...\n");
   inject({ cwd: projectRoot, verbose: true });
   console.log(
-    "\n[dev-agents] Done! Set MINIMAX_API_KEY in your environment and open OpenCode.\n" +
-    "[dev-agents] Use the orchestrator agent to start the full development workflow.\n"
+    "\n[opencode-agent] Done! Set MINIMAX_API_KEY in your environment and open OpenCode.\n" +
+    "[opencode-agent] Use the orchestrator agent to start the full development workflow.\n"
   );
 } catch (err) {
   // Non-fatal: a broken postinstall should never block npm install
   console.warn(
-    "\n[dev-agents] Warning: could not inject config:",
+    "\n[opencode-agent] Warning: could not inject config:",
     err instanceof Error ? err.message : err,
-    "\nRun `dev-agents inject` manually to retry.\n"
+    "\nRun `opencode-agent inject` manually to retry.\n"
   );
 }

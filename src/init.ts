@@ -1,6 +1,7 @@
 import { execSync } from "child_process";
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
+import { inject } from "./inject.js";
 
 const PACKAGE_NAME = "@devlitusp/opencode-agent";
 
@@ -44,6 +45,11 @@ export function init(cwd: string = process.cwd()): void {
     console.error(`\nInstall failed. Try running manually:\n  ${installCmd}`);
     process.exit(1);
   }
+
+  // pnpm rewrites package.json after the install, which can overwrite changes
+  // made by postinstall (e.g. the prepare script). Run inject() explicitly here
+  // so it always runs after pnpm has finished modifying package.json.
+  inject({ cwd, verbose: true });
 }
 
 function detectPackageManager(cwd: string): string {

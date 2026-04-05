@@ -27,8 +27,8 @@ export interface AgentDefinition {
 }
 
 export interface ProviderApiOptions {
-  baseURL: string;
-  apiKey: string;
+  baseURL?: string;
+  apiKey?: string;
 }
 
 export interface OpenCodeProvider {
